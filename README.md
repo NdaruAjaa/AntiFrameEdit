@@ -11,7 +11,7 @@
 <li>Easy to usage.</li>
 <li>Multiworld support.</li>
 <li>Permissions for players to use the frames.</li>
-<li>PocketMine-MP 4.0.0 (Only).</li>
+<li>PocketMine-MP 5.0.0 (Only).</li>
 </ul>
 
 <h3>✒ Permissions:</h3>
