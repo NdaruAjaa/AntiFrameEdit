@@ -29,4 +29,4 @@
 
 | Plugin Version | Pocketmine API | PHP Version | Plugin Status |
 |---|---|---|---|
-| 5.0 | 4.0.0 | 8 | Completed |
+| 5.0 | 5.0.0 | 8 | Completed |
