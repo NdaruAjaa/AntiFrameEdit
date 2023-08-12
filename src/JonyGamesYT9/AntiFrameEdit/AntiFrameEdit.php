@@ -3,7 +3,7 @@
 namespace JonyGamesYT9\AntiFrameEdit;
 
 use pocketmine\block\Block;
-use pocketmine\block\BlockLegacyIds;
+use pocketmine\block\BlockTypeIds;
 use pocketmine\utils\Config;
 use pocketmine\Server;
 use pocketmine\event\Listener;
@@ -78,7 +78,7 @@ class AntiFrameEdit extends PluginBase implements Listener
       case PlayerInteractEvent::RIGHT_CLICK_BLOCK:
         foreach ($this->getWorlds() as $world) {
           if ($player->getWorld()->getFolderName() == $world) {
-            if ($block->getId() == BlockLegacyIds::ITEM_FRAME_BLOCK) {
+            if ($block->getTypeId() == BlockTypeIds::ITEM_FRAME) {
               if ($this->config->get("only-admin-usage") === true) {
                 if ($player->hasPermission("antiframeedit.place.bypass") or Server::getInstance()->isOp($player->getName())) {
                   return;
@@ -86,7 +86,7 @@ class AntiFrameEdit extends PluginBase implements Listener
               }
               $hand = $player->getInventory()->getItemInHand();
               foreach ($this->getProhibitedItems() as $item) {
-                if ($hand->getId() == (int)$item) {
+                if ($hand->getTypeId() == (int)$item) {
                   $player->sendMessage(str_replace(["&"], ["§"], $this->config->get("prohibited.item.usage")));
                   return;
                 }
@@ -102,7 +102,7 @@ class AntiFrameEdit extends PluginBase implements Listener
       case PlayerInteractEvent::LEFT_CLICK_BLOCK:
         foreach ($this->getWorlds() as $world) {
           if ($player->getWorld()->getFolderName() == $world) {
-            if ($block->getId() == BlockLegacyIds::ITEM_FRAME_BLOCK) {
+            if ($block->getTypeId() == BlockTypeIds::ITEM_FRAME) {
               if ($this->config->get("only-admin-usage") === true) {
                 if ($player->hasPermission("antiframeedit.remove.bypass") or Server::getInstance()->isOp($player->getName())) {
                   return;
